@@ -1,0 +1,2 @@
+#!/bin/bash
+chnod --reference=olleh hello
