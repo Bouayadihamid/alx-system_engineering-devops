@@ -1,0 +1,2 @@
+#!/bin/bash
+echo "long and hidden files" > ls_cwd_content
