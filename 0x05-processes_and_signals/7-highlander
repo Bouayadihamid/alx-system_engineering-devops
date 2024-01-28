@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 # Displays To infinity and beyond indefinitely
 # With a sleep 2 and I am invincible!!! when get a SIGTERM signal
-trap 'echo "I am invincible!!!"; exit' SIGTERM
+trap 'echo "I am invincible!!!"; exit' 15
 
 while true
 do
