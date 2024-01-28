@@ -3,7 +3,6 @@
 # With a sleep 2 and I am invincible!!! when get a SIGTERM signal
 
 trap 'echo "I am invincible!!!"; exit' 15
-
 while true
 do
 	echo "To infinity and beyond"
