@@ -1,0 +1,3 @@
+#!/usr/bin/env bash
+#jsjf
+sudo service apache2 start
