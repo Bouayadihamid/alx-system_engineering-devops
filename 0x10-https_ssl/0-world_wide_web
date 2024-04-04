@@ -1,18 +1,20 @@
 #!/usr/bin/env bash
 # Script for listing the record type and the destination of a domain name.
-domain="$1"
-digger() {
-  target=$(dig "$subdomain.$domain" +short)
-  record=$(dig "$subdomain.$domain" | awk '/IN/ {print $4}' | tr -d '\n')
-  echo "The subdomain $subdomain is a $record record and points to $target"
+
+info () {
+#    data=$(dig "$2"."$1" | awk '/ANSWER SECTION:/ {getline; print}' | awk '{print $1, $4}')
+    echo "$(dig www.$1 | awk '/ANSWER SECTION:/{getline; print "The subdomain www is a " $4 " record and points to " $5}')"
+    echo "$(dig web-01.$1 | awk '/ANSWER SECTION:/{getline; print "The subdomain web-01 is a " $4 " record and points to " $5}')"
+    echo "$(dig web-02.$1 | awk '/ANSWER SECTION:/{getline; print "The subdomain web-02 is a " $4 " record and points to " $5}')"
+    echo "$(dig lb-01.$1 | awk '/ANSWER SECTION:/{getline; print "The subdomain lb-01 is a " $4 " record and points to " $5}')"
 }
 
-if [ -n "$1" ] && [ -n "$2" ]; then
-  subdomain="$2"
-  digger
-else
-  subdomains=("www" "lb-01" "web-01" "web-02")
-  for subdomain in "${subdomains[@]}"; do
-    digger
-  done
+if [ "$#" == 1 ];then
+        info "$1"
+fi
+
+
+if [ "$#" == 2 ]
+then
+  info "$1" "$2"
 fi
