@@ -1,0 +1,18 @@
+#!/usr/bin/env bash
+# Script for listing the record type and the destination of a domain name.
+domain="$1"
+digger() {
+  target=$(dig "$subdomain.$domain" +short)
+  record=$(dig "$subdomain.$domain" | awk '/IN/ {print $4}' | tr -d '\n')
+  echo "The subdomain $subdomain is a $record record and points to $target"
+}
+
+if [ -n "$1" ] && [ -n "$2" ]; then
+  subdomain="$2"
+  digger
+else
+  subdomains=("www" "lb-01" "web-01" "web-02")
+  for subdomain in "${subdomains[@]}"; do
+    digger
+  done
+fi
