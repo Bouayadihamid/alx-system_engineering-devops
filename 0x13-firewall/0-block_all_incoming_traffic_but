@@ -1,5 +1,5 @@
 #!/usr/bin/bash
-# A script install the ufw firewall and setup a few rules on a server.
+# Install the ufw firewall and setup rules on web 1
 sudo apt-get install ufw
 sudo ufw default deny incoming
 sudo ufw default allow outgoing
