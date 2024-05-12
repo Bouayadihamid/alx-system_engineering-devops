@@ -1,4 +1,5 @@
 Postmortem: Etsy Global Outage Due to Misconfigured Multicast Traffic
+![Uploading Screenshot 2024-05-12 194456.png…]()
 
 < Incident Summary: >
 On May 12, 2024, Etsy experienced a widespread outage that affected its global services. The root cause was identified as misconfigured multicast traffic, which led to disruptions across various systems and services. The incident resulted in significant downtime and impacted user experience for Etsy's customers worldwide.
